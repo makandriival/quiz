@@ -1,0 +1,35 @@
+.circular-loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.circular-loader {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: conic-gradient(rgb(251 146 60) var(--percentage), #e0e0e0 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.circular-loader::before {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.percentage {
+  position: absolute;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: rgb(251 146 60);
+}
