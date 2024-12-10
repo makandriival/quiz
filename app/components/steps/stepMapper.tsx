@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { Actions } from "../actions/actions";
 import { Select } from "../inputs/select/select";
 import { Text } from "../inputs/text/text";
@@ -10,6 +10,7 @@ import { useTranslations } from "next-intl";
 
 interface Props {
 	stepId: number;
+	lang: string;
 }
 
 interface Error {
@@ -29,11 +30,12 @@ interface MapperContextProps {
 	isNextDisabled: boolean;
 	setIsNextDisabled: (isNextDisabled: boolean) => void;
 	load: () => Promise<void>;
+	lang: string;
 }
 
 export const MapperContext = createContext({} as MapperContextProps);
 
-export const StepMapper: React.FC<Props> = ({ stepId }) => {
+export const StepMapper: React.FC<Props> = ({ stepId, lang }) => {
 	const [errors, setErrors] = useState<Error[]>([]);
 	const [isShowError, setIsShowError] = useState<boolean>(false);
 	const [isNextDisabled, setIsNextDisabled] = useState<boolean>(false);
@@ -80,6 +82,7 @@ export const StepMapper: React.FC<Props> = ({ stepId }) => {
 				isNextDisabled,
 				setIsNextDisabled,
 				load,
+				lang
 			}}
 		>
 			<div className="min-w-64">

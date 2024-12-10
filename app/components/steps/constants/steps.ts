@@ -1,6 +1,7 @@
 export interface Option {
   id: number;
   text: string;
+  lang?: string;
 }
 
 export interface IActions {
@@ -27,18 +28,22 @@ export const steps = [
       {
         id:1,
         text: "english",
+        lang: "en"
       },
       {
         id:2,
         text: "spanish",
+        lang: "es"
       },
       {
         id:3,
         text: "french",
+        lang: "fr"
       },
       {
         id:4,
         text: "german",
+        lang: "de"
       }
     ]
   },
