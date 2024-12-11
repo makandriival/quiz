@@ -42,6 +42,9 @@ export const useActions = (stepId: number) => {
 	};
 
 	const next = async (newLang?: string) => {
+		const screen = document.getElementById("step-mapper");
+		screen?.classList.add("slide-out");
+		
 		if (errors.length) {
 			setIsShowError(true);
 			setIsNextDisabled(true);

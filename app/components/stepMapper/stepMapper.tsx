@@ -7,6 +7,7 @@ import { IActions, Option, Step, steps } from "../../constants/steps";
 import { Stepper } from "../stepper/Stepper";
 import { Loader } from "../loader/Loader";
 import { useTranslations } from "next-intl";
+import "./stepMapper.css";
 
 interface Props {
 	stepId: number;
@@ -85,7 +86,7 @@ export const StepMapper: React.FC<Props> = ({ stepId, lang }) => {
 				lang
 			}}
 		>
-			<div className="min-w-64">
+			<div id="step-mapper" className="min-w-64 slide-in">
 				<Stepper currentStep={stepId} totalSteps={steps.length} />
 				<h1 className='p-1'>{t(question)}</h1>
 				<div className='p-1'>

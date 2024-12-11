@@ -13,10 +13,9 @@ export const Loader: React.FC<Props> = ({ percentage }) => {
         className={'circular-loader'}
         style={{ '--percentage': `${percentage}%` } as React.CSSProperties}
       >
-        <div className={'percentage'}>{percentage}%</div>
+        <div className={'percentage animate-ping'}>{percentage}%</div>
       </div>
     </div>
-    calculating...
     </div>
   );
 };

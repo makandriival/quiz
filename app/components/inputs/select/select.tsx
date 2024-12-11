@@ -63,7 +63,7 @@ export const Select = () => {
 							{t(text)}
 						</button>
 						{(hasConditionals && selection.includes(t(text)) && conditional?.question) && (
-							<div className='flex gap-1 items-center justify-around m-3'>
+							<div className='flex gap-1 items-center justify-around m-3 slide-in'>
 								<div>{t(conditional?.question)}</div>
 								<Button
 									type='button'
