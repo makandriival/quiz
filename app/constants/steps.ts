@@ -199,6 +199,7 @@ export const steps: Step[] = [
     actions: {
       isDownload: true,
       isRetake: true,
+      isSaveToDb: true,
     }
   }
 ];
