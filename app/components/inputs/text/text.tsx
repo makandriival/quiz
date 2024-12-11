@@ -1,7 +1,7 @@
 "use client";
 import { useActions } from "@/app/hooks/useActions";
 import { useContext, useEffect, useState } from "react";
-import { MapperContext } from "../../steps/stepMapper";
+import { MapperContext } from "../../stepMapper/stepMapper";
 
 export const Text: React.FC = () => {
   const { stepId, type, errors, isShowError, setIsNextDisabled } = useContext(MapperContext);

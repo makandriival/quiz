@@ -2,15 +2,15 @@
 import { useContext } from "react";
 import { Button } from "../button/button";
 import { useActions } from "@/app/hooks/useActions";
-import { MapperContext } from "../steps/stepMapper";
+import { MapperContext } from "../stepMapper/stepMapper";
 
 export const Actions = () => {
 	const {
-		actions: { isBack, isNext, isDownload, isRetake },
+		actions: { isBack, isNext, isDownload, isRetake, isSaveToDb },
 		stepId,
 		isNextDisabled
 	} = useContext(MapperContext);
-	const { next, back, download, retake } = useActions(stepId);
+	const { next, back, download, retake, submit } = useActions(stepId);
 
 	return (
 		<div className='flex justify-around gap-3'>
@@ -41,6 +41,13 @@ export const Actions = () => {
 					type='button'
 					onClick={retake}
 					text='Retake'
+				/>
+			)}
+			{isSaveToDb && (
+				<Button
+					type='button'
+					onClick={submit}
+					text='Save to DB'
 				/>
 			)}
 		</div>

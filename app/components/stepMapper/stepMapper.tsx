@@ -3,7 +3,7 @@ import { createContext, useEffect, useState } from "react";
 import { Actions } from "../actions/actions";
 import { Select } from "../inputs/select/select";
 import { Text } from "../inputs/text/text";
-import { IActions, Option, Step, steps } from "./constants/steps";
+import { IActions, Option, Step, steps } from "../../constants/steps";
 import { Stepper } from "../stepper/Stepper";
 import { Loader } from "../loader/Loader";
 import { useTranslations } from "next-intl";
@@ -90,11 +90,7 @@ export const StepMapper: React.FC<Props> = ({ stepId, lang }) => {
 				<h1 className='p-1'>{t(question)}</h1>
 				<div className='p-1'>
 					{isSelect && (
-						<Select
-							stepId={stepId}
-							type={type}
-							options={options}
-						/>
+						<Select />
 					)}
 					{isText && <Text />}
 				</div>

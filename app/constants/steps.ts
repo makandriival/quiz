@@ -2,6 +2,9 @@ export interface Option {
   id: number;
   text: string;
   lang?: string;
+  conditional?: {
+    question: string;
+  };
 }
 
 export interface IActions {
@@ -9,6 +12,7 @@ export interface IActions {
   isBack?: boolean;
   isDownload?: boolean;
   isRetake?: boolean;
+  isSaveToDb?: boolean;
 }
 export interface Step {
   id: number;
@@ -16,9 +20,10 @@ export interface Step {
   type: string;
   options?: Option[];
   actions: IActions;
+  isFinal?: boolean;
 }
 
-export const steps = [
+export const steps: Step[] = [
   {
     id: 1,
     question: "What language do you prefer?",
@@ -58,14 +63,23 @@ export const steps = [
       {
         id:1,
         text: "0-18",
+        conditional: {
+          question: "Are you a student?",
+        }
       },
       {
         id:2,
         text: "19-30",
+        conditional: {
+          question: "Do you work?",
+        }
       },
       {
         id:3,
         text: "31-50",
+        conditional: {
+          question: "Are you married?",
+        }
       },
       {
         id:4,

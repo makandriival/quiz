@@ -1,4 +1,5 @@
-import { StepMapper } from "@/app/components/steps/stepMapper";
+import { StepMapper } from "@/app/components/stepMapper/stepMapper";
+
 
 export default async function Step({
 	params,

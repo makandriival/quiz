@@ -15,7 +15,6 @@ export const Stepper: React.FC<Props> = ({ currentStep, totalSteps }) => {
         className='progress-bar'
         style={{ width: `${progressPercentage}%` }}
         >
-        {currentStep}/{totalSteps}
       </div>
     </div>
   )};
