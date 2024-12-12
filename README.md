@@ -1,3 +1,20 @@
+**quiz app**
+
+I used Tailwind for styling mostly + css in some places where custom styles or animations are needed.
+
+Was interesting to implement form without any lib for form management (usually i use react hook form and Yup for validation).
+There is basic custom validation for email and it is scalable further (i can easily add more text inputs and validate it using validate method 
+in useValidation hook)
+
+I used middleware.ts for initial redirection from main root to the quiz. And also mimicked communication with server by 
+creating app/api/save/route.ts.
+
+When inspecting code please start with app/constants/steps.ts - there is a structure of steps for quiz (in real life project would be cool to get this JSON from a server or DB)
+Then [locale]/quiz/[stepId] - getting lang from params in server component (in real life maybe fetching some data from server)
+in page.ts for [stepId] you will find StepMapper component - it renders all the steps based on the stepId and some other conditions
+
+the rest 
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

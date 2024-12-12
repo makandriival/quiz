@@ -7,15 +7,11 @@ import { IActions, Option, Step, steps } from "../../constants/steps";
 import { Stepper } from "../stepper/Stepper";
 import { Loader } from "../loader/Loader";
 import { useTranslations } from "next-intl";
+import { Error } from "@/app/interfaces/interfaces";
 
 interface Props {
 	stepId: number;
 	lang: string;
-}
-
-interface Error {
-	field: string;
-	message: string;
 }
 
 interface MapperContextProps {
