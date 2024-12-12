@@ -42,14 +42,14 @@ export const useActions = (stepId: number) => {
 	};
 
 	const next = async (newLang?: string) => {
+		if (errors.length) {
+			setIsShowError(true);
+			setIsNextDisabled(true);("slide-in");
+			return;
+		}
 		const screen = document.getElementById("step-mapper");
 		screen?.classList.add("slide-out");
 		
-		if (errors.length) {
-			setIsShowError(true);
-			setIsNextDisabled(true);
-			return;
-		}
 		if (currentStep?.isFinal) await load();
 		const doChangeLang = newLang && stepId === 1 && typeof newLang === 'string';
 		if (doChangeLang) return router.push(`/${newLang}/quiz/${stepId + 1}`);
