@@ -7,9 +7,9 @@
 }
 
 .progress-bar {
-  height: 20px;
+  height: 3px;
   width: 0;
-  background-color: #9daf4c;
+  background-color: #E4229C;
   text-align: center;
   line-height: 20px;
   color: white;

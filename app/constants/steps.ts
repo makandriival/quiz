@@ -5,6 +5,7 @@ export interface Option {
   conditional?: {
     question: string;
   };
+  icon?: string;
 }
 
 export interface IActions {
@@ -17,45 +18,76 @@ export interface IActions {
 export interface Step {
   id: number;
   question: string;
+  helperText?: string;
   type: string;
   options?: Option[];
   actions: IActions;
   isFinal?: boolean;
+  flow?: string;
 }
 
 export const steps: Step[] = [
   {
     id: 1,
-    question: "What language do you prefer?",
+    question: "What is your preferred language?",
+    helperText: "Choose language",
     type: "single-select",
     actions: {},
     options: [
       {
         id:1,
-        text: "english",
+        text: "English",
         lang: "en"
       },
       {
         id:2,
-        text: "spanish",
+        text: "Spanish",
         lang: "es"
       },
       {
         id:3,
-        text: "french",
+        text: "French",
         lang: "fr"
       },
       {
         id:4,
-        text: "german",
+        text: "German",
         lang: "de"
       }
     ]
   },
   {
     id: 2,
+    question: "What gender do you identify with?",
+    helperText: "Please share how do you identify yourself",
+    type: "single-select",
+    flow: "row",
+    actions: {
+      isBack: true
+    },
+    options: [
+      {
+        id:1,
+        text: "Male",
+        icon: "👨"
+      },
+      {
+        id:2,
+        text: "Female",
+        icon: "👩"
+      },
+      {
+        id:3,
+        text: "Other",
+        icon: "🤷‍♂️"
+      }
+    ]
+  },
+  {
+    id: 3,
     type: "single-select",
     question: "What is your age?",
+
     actions: {
       isBack: true
     },
@@ -85,28 +117,6 @@ export const steps: Step[] = [
         id:4,
         text: "51-70",
       },
-    ]
-  },
-  {
-    id: 3,
-    question: "What is your gender?",
-    type: "single-select",
-    actions: {
-      isBack: true
-    },
-    options: [
-      {
-        id:1,
-        text: "male",
-      },
-      {
-        id:2,
-        text: "female",
-      },
-      {
-        id:3,
-        text: "other",
-      }
     ]
   },
   {

@@ -27,6 +27,7 @@ interface MapperContextProps {
 	setIsNextDisabled: (isNextDisabled: boolean) => void;
 	load: () => Promise<void>;
 	lang: string;
+	flow?: string;
 }
 
 export const MapperContext = createContext({} as MapperContextProps);
@@ -38,7 +39,7 @@ export const StepMapper: React.FC<Props> = ({ stepId, lang }) => {
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const [percentage, setPercentage] = useState<number>(0);
 	const t = useTranslations();
-	const { question, type, options, actions }: Step =
+	const { question, type, options, actions, helperText, flow }: Step =
 		steps.find(s => s.id === stepId) || steps[0];
 	const isSelect =
 		(type === "single-select" || type === "multi-select") && options;
@@ -78,18 +79,20 @@ export const StepMapper: React.FC<Props> = ({ stepId, lang }) => {
 				isNextDisabled,
 				setIsNextDisabled,
 				load,
-				lang
+				lang,
+				flow
 			}}
 		>
-			<div id="step-mapper" className="min-w-64 slide-in">
-				<Stepper currentStep={stepId} totalSteps={steps.length} />
-				<h1 className='p-1'>{t(question)}</h1>
-				<div className='p-1'>
+			<div id="step-mapper" className="min-w-64 slide-in flex flex-col items-center">
+				<Stepper currentStep={stepId} totalSteps={5} />
+				<h1 className='p-1 text-xl font-bold'>{t(question)}</h1>
+				<h3 className="p-1 text-sm font-thin text-[#C4C8CC] mb-3">{t(helperText)}</h3>
+				{/* <div className='p-1'> */}
 					{isSelect && (
 						<Select />
 					)}
 					{isText && <Text />}
-				</div>
+				{/* </div> */}
 				<div className='p-3'>
 					<Actions />
 				</div>

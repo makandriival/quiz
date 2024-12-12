@@ -6,7 +6,7 @@ import { MapperContext } from "../../stepMapper/stepMapper";
 import { Button } from "../../button/button";
 
 export const Select = () => {
-	const { options, type, stepId } = useContext(MapperContext);
+	const { options, type, stepId, flow } = useContext(MapperContext);
 	const isMultiSelect = type === "multi-select";
 	const hasConditionals = options?.some(({ conditional }) => conditional);
 	const savedStep = localStorage.getItem(`step-${stepId}`);
@@ -50,18 +50,21 @@ export const Select = () => {
 	}, []);
 
 	return (
-		<div className='flex flex-col gap-3 items-center'>
+		<div className={`flex gap-3 items-center w-full ${flow ? '' : 'flex-col'}`}>
 			{options &&
-				options.map(({ text, id, lang, conditional }) => (
-					<div key={id}>
-						<button
+				options.map(({ text, id, lang, conditional, icon }) => (
+					<div key={id} className="w-full">
+						<div
 							onClick={() => handleChange(t(text), lang || "", !!conditional?.question)}
 							className={`${
-								selection.includes(t(text)) ? "bg-orange-400" : "bg-gray-600 hover:bg-blue-700"
-							} w-[150px] px-3 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm text-white  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500`}
+								selection.includes(t(text)) ? "bg-[#E4229B33] border-[#E4229B]" : " bg-[#36173D] hover:bg-[#E4229B]"
+							} w-full px-3 py-1.5 border border-transparent text-xs font-medium rounded-md cursor-pointer`}
 						>
-							{t(text)}
-						</button>
+							<div className={`${icon ? 'flex flex-col items-center' : ''}`}>
+							{icon && <span className="text-6xl pb-3">{icon}</span>}
+							<div >{t(text)}</div>
+							</div>
+						</div>
 						{(hasConditionals && selection.includes(t(text)) && conditional?.question) && (
 							<div className='flex gap-1 items-center justify-around m-3 slide-in'>
 								<div>{t(conditional?.question)}</div>
