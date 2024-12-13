@@ -84,7 +84,7 @@ export const Select = () => {
 							} ${icon ? "" : "h-[76px]"} 
 							${isMultiSelect ? "flex justify-between" : ""}
 							px-3 py-1.5 border text-xs font-medium rounded-md cursor-pointer flex items-center justify-center
-							${isBubbles ? "rounded-[100%] w-36 h-36" : "w-full"}
+							${isBubbles ? "rounded-full w-36 h-36" : "w-full"}
 							`}
 						>
 							<div 
