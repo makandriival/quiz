@@ -155,43 +155,41 @@ export const steps: Step[] = [
     question: "What are your favorite topics?",
     type: "multi-select",
     isFinal: true,
+    flow: "bubble",
     actions: {
       isNext: true,
-      // isBack: true
     },
     options: [
       {
         id:1,
         text: "Mystery",
+        icon: "⁉️"
       },
       {
         id:2,
         text: "Romance",
+        icon: "💑"
       },
       {
         id:3,
         text: "Fantasy",
+        icon: "🧙‍♂️"
       },
       {
         id:4,
-        text: "Science fiction",
+        text: "Sci-fi",
+        icon: "👽"
       },
       {
         id:5,
         text: "History",
+        icon: "📜"
       },
       {
         id:6,
         text: "Biography",
+        icon: "📖"
       },
-      {
-        id:7,
-        text: "Self-help",
-      },
-      {
-        id:8,
-        text: "Horror",
-      }
     ]
   },
   {

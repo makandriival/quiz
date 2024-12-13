@@ -15,6 +15,8 @@ export const Select = () => {
 	const [selection, setSelection] = useState<string[]>([]);
 	const { next, saveStep } = useActions(stepId);
 	const t = useTranslations();
+	const isInRow = flow === 'row';
+	const isBubbles = flow === 'bubble';
 
 	const handleChange = async (
 		text: string,
@@ -64,12 +66,12 @@ export const Select = () => {
 	}, []);
 
 	return (
-		<div className={`flex gap-3 items-center w-full ${flow ? "" : "flex-col"}`}>
+		<div className={isBubbles ? 'flex gap-5 flex-wrap max-w-[500px]' : `flex gap-3 items-center w-full ${isInRow && !isBubbles ? "" : "flex-col"}`}>
 			{options &&
 				options.map(({ text, id, lang, conditional, icon }) => (
 					<div
 						key={id}
-						className='w-full'
+						className={isBubbles ? 'bubble-animation' : 'w-full'}
 					>
 						<div
 							onClick={() =>
@@ -81,14 +83,20 @@ export const Select = () => {
 									: " bg-[#36173D] hover:bg-[#E4229B] border-transparent"
 							} ${icon ? "" : "h-[76px]"} 
 							${isMultiSelect ? "flex justify-between" : ""}
-							w-full px-3 py-1.5 border text-xs font-medium rounded-md cursor-pointer flex items-center justify-center`}
+							px-3 py-1.5 border text-xs font-medium rounded-md cursor-pointer flex items-center justify-center
+							${isBubbles ? "rounded-[100%] w-36 h-36" : "w-full"}
+							`}
 						>
-							<div className={`flex items-center ${icon ? "flex-col" : ""}`}>
+							<div 
+							className={`flex items-center 
+								${icon ? "flex-col" : ""}
+								${(isBubbles && icon) ? "relative left-4" : ""}
+							`}>
 								{icon && <span className='text-6xl pb-3'>{icon}</span>}
 								<div className='text-xl '>{t(text)}</div>
 							</div>
 							<div>
-								{isMultiSelect && (
+								{(isMultiSelect && !isBubbles) && (
 									<Checkbox isSelected={selection.includes(t(text))} />
 								)}
 							</div>
