@@ -12,8 +12,10 @@ export const Actions = () => {
 	} = useContext(MapperContext);
 	const { next, back, download, retake, submit } = useActions(stepId);
 
+	console.log('in actions', isNextDisabled);
+
 	return (
-		<div className='flex justify-around gap-3'>
+		<div className='flex justify-around gap-3 flex-col md:flex-row'>
 			{isBack && (
 				<Button
 					type='button'

@@ -1,7 +1,7 @@
 import { useRouter } from "next/navigation";
 import { steps } from "../constants/steps";
 import { StorageStep } from "../interfaces/interfaces";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { MapperContext } from "../components/stepMapper/stepMapper";
 
 export const useActions = (stepId: number) => {
@@ -14,7 +14,7 @@ export const useActions = (stepId: number) => {
 		.map(key => JSON.parse(localStorage.getItem(key) || ""))
 		.sort((a, b) => a.order - b.order);
 
-	const saveStep = (answer: string) => {
+	const saveStep = (answer: string | null) => {
 		const storageStep: StorageStep = {
 			order: stepId,
 			title: currentStep?.question || "not found",
@@ -44,7 +44,7 @@ export const useActions = (stepId: number) => {
 	const next = async (newLang?: string) => {
 		if (errors.length) {
 			setIsShowError(true);
-			setIsNextDisabled(true);("slide-in");
+			setIsNextDisabled(true);
 			return;
 		}
 		const screen = document.getElementById("step-mapper");
@@ -68,7 +68,7 @@ export const useActions = (stepId: number) => {
 			quiz
 				.map(
 					({ answer, type, title, order }) =>
-						`${order},${title},${type},${answer.split(',').join(' - ')}`
+						`${order},${title},${type},${(answer ?? '').split(',').join(' - ')}`
 				)
 				.join("\n");
 		const encodedUri = encodeURI(csvString);

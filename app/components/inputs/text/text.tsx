@@ -25,8 +25,8 @@ export const Text: React.FC = () => {
 				value={savedStep ? JSON.parse(savedStep).answer : value}
 				onChange={onChange}
 				type={type}
-				placeholder={type}
-				className={`w-[100%] px-3 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-gray-600 ${isShowError && errors.length ? 'border-red-500' : ''}`}
+				placeholder={`Your ${type}`}
+				className={`w-[100%] px-3 py-1.5 text-xs font-medium rounded-lg shadow-sm text-white bg-[#36173D] h-[76px] ${isShowError && errors.length ? 'border border-red-500' : 'border border-transparent'}`}
 			/>
 			{(isShowError && errors) && errors.map(({message}) => (
 				<p key={message} className='text-red-500 text-xs'>{message}</p>

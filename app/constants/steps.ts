@@ -63,7 +63,7 @@ export const steps: Step[] = [
     type: "single-select",
     flow: "row",
     actions: {
-      isBack: true
+      // isBack: true
     },
     options: [
       {
@@ -89,7 +89,7 @@ export const steps: Step[] = [
     question: "What is your age?",
 
     actions: {
-      isBack: true
+      // isBack: true
     },
     options: [
       {
@@ -125,28 +125,28 @@ export const steps: Step[] = [
     type: "multi-select",
     actions: {
       isNext: true,
-      isBack: true
+      // isBack: true
     },
     options: [
       {
         id:1,
-        text: "violence",
+        text: "Violence",
       },
       {
         id:2,
-        text: "abuse",
+        text: "Abuse",
       },
       {
         id:3,
-        text: "sexual content",
+        text: "Sexual content",
       },
       {
         id:4,
-        text: "lack of humour",
+        text: "Lack of humour",
       },
       {
         id:5,
-        text: "lack of diversity",
+        text: "Lack of diversity",
       }
     ]
   },
@@ -157,46 +157,47 @@ export const steps: Step[] = [
     isFinal: true,
     actions: {
       isNext: true,
-      isBack: true
+      // isBack: true
     },
     options: [
       {
         id:1,
-        text: "mystery",
+        text: "Mystery",
       },
       {
         id:2,
-        text: "romance",
+        text: "Romance",
       },
       {
         id:3,
-        text: "fantasy",
+        text: "Fantasy",
       },
       {
         id:4,
-        text: "science fiction",
+        text: "Science fiction",
       },
       {
         id:5,
-        text: "history",
+        text: "History",
       },
       {
         id:6,
-        text: "biography",
+        text: "Biography",
       },
       {
         id:7,
-        text: "self-help",
+        text: "Self-help",
       },
       {
         id:8,
-        text: "horror",
+        text: "Horror",
       }
     ]
   },
   {
     id: 6,
-    question: "Please enter your email",
+    question: "Email",
+    helperText: "Enter your email to get full access",
     type: "email",
     actions: {
       isNext: true,
@@ -205,6 +206,7 @@ export const steps: Step[] = [
   {
     id: 7,
     question: "Thank you!",
+    helperText: "for supporting us and passing quiz",
     type: "success",
     actions: {
       isDownload: true,

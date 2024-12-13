@@ -3,15 +3,15 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: 300px;
+  height: 300px;
 }
 
 .circular-loader {
-  width: 100px;
-  height: 100px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
-  background: conic-gradient(rgb(251 146 60) var(--percentage), #e0e0e0 0);
+  background: conic-gradient(#E4229C var(--percentage), #e0e0e0 0);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,9 +21,9 @@
 .circular-loader::before {
   content: '';
   position: absolute;
-  width: 80px;
-  height: 80px;
-  background-color: white;
+  width: 290px;
+  height: 290px;
+  background-color: #1F002B;
   border-radius: 50%;
 }
 
@@ -31,5 +31,5 @@
   position: absolute;
   font-size: 1.5rem;
   font-weight: bold;
-  color: rgb(251 146 60);
+  color: #E4229C;
 }
