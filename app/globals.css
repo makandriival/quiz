@@ -83,7 +83,6 @@ body {
   
   @media (max-width: 500px) {
     .bubble-animation:nth-child(2n) {
-    border: green 3px solid;
     animation-duration: 3s;
   }
   .bubble-animation:nth-child(4n) {
