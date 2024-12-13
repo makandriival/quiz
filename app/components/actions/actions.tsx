@@ -35,7 +35,7 @@ export const Actions = () => {
 				<Button
 					type='button'
 					onClick={download}
-					text='Download CSV'
+					text='Download my answers'
 				/>
 			)}
 			{isRetake && (
