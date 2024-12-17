@@ -119,7 +119,7 @@ export const Select = () => {
 									<div className='w-[70px]'>
 										<Button
 											type='button'
-											text='Yes'
+											text={t("Yes")}
 											onClick={() =>
 												onConditionalAnswer(`${t(conditional?.question)} - Yes`)
 											}
@@ -128,7 +128,7 @@ export const Select = () => {
 									<div className='w-[70px]'>
 										<Button
 											type='button'
-											text='no'
+											text={t("No")}
 											onClick={() =>
 												onConditionalAnswer(`${t(conditional?.question)} - No`)
 											}
