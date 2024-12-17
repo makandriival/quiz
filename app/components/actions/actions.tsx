@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { Button } from "../button/button";
 import { useActions } from "@/app/hooks/useActions";
 import { MapperContext } from "../stepMapper/stepMapper";
+import { useTranslations } from "next-intl";
 
 export const Actions = () => {
 	const {
@@ -10,9 +11,8 @@ export const Actions = () => {
 		stepId,
 		isNextDisabled
 	} = useContext(MapperContext);
+	const t = useTranslations();
 	const { next, back, download, retake, submit } = useActions(stepId);
-
-	console.log('in actions', isNextDisabled);
 
 	return (
 		<div className='flex justify-around gap-3 flex-col md:flex-row'>
@@ -27,7 +27,7 @@ export const Actions = () => {
 				<Button
 					type='button'
 					onClick={next}
-					text='Next'
+					text={t('Next')}
 					isDisabled={isNextDisabled}
 				/>
 			)}
@@ -35,21 +35,22 @@ export const Actions = () => {
 				<Button
 					type='button'
 					onClick={download}
-					text='Download my answers'
+					text={t('Download my answers')}
+					isDownload={isDownload}
 				/>
 			)}
 			{isRetake && (
 				<Button
 					type='button'
 					onClick={retake}
-					text='Retake'
+					text={t('Retake')}
 				/>
 			)}
 			{isSaveToDb && (
 				<Button
 					type='button'
 					onClick={submit}
-					text='Save to DB'
+					text={t('Save to DB')}
 				/>
 			)}
 		</div>

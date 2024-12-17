@@ -1,6 +1,5 @@
 {
   "Enter your email to get full access": "Enter your email to get full access",
-  "Choose language": "Choose language",
   "Do you work?": "Do you work?",
   "Are you a student?": "Are you a student?",
   "Yes": "Yes",
@@ -39,5 +38,14 @@
   "Email": "Email",
   "Thank you!": "Thank you!",
   "for supporting us and passing quiz": "for supporting us and passing quiz",
-  "Are you sure you want to retake the quiz?": "Are you sure you want to retake the quiz?"
+  "Are you sure you want to retake the quiz?": "Are you sure you want to retake the quiz?",
+  "Download my answers": "Download my answers",
+  "Save to db": "Save to DB",
+  "Retake": "Retake",
+  "Choose language": "Choose language",
+  "Please enter a valid email address": "Please enter a valid email address",
+  "Your email": "Your email",
+  "Next": "Next",
+  "Save to DB": "Save to DB",
+  "Finding collections for you": "Finding collections for you"
 }

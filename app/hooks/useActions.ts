@@ -3,8 +3,10 @@ import { steps } from "../constants/steps";
 import { StorageStep } from "../interfaces/interfaces";
 import { useContext, useEffect } from "react";
 import { MapperContext } from "../components/stepMapper/stepMapper";
+import { useTranslations } from "next-intl";
 
 export const useActions = (stepId: number) => {
+	const t = useTranslations();
 	const currentStep = steps.find(step => step.id === stepId);
 	const router = useRouter();
 	const { errors, setErrors, setIsShowError, setIsNextDisabled, load, lang } =
@@ -28,9 +30,9 @@ export const useActions = (stepId: number) => {
 		if (type === "email") {
 			const emailError = {
 				field: "email",
-				message: '"Please enter a valid email address"',
+				message: t("Please enter a valid email address"),
 			};
-			const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+			const isValid = /^[a-z0-9._%+-]+@[a-z]+\.[a-z]{2,}$/.test(val);
 			if (!isValid || !val) {
 				if (!errors.find(error => error.field === "email"))
 					setErrors([...errors, emailError]);
@@ -80,7 +82,7 @@ export const useActions = (stepId: number) => {
 	};
 
 	const retake = () => {
-		if (!confirm("Are you sure you want to retake the quiz?")) return;
+		if (!confirm(t("Are you sure you want to retake the quiz?"))) return;
 		localStorage.clear();
 		router.push(`/${lang}/quiz/1`);
 	};

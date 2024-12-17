@@ -38,5 +38,14 @@
 	"Enter your email to get full access": "Ingresa tu correo electrónico para obtener acceso completo",	
 	"Thank you!": "¡Gracias!",
 	"for supporting us and passing quiz": "por apoyarnos y aprobar la prueba",
-	"Are you sure you want to retake the quiz?": "¿Estás seguro de que quieres volver a realizar la prueba?"
+	"Are you sure you want to retake the quiz?": "¿Estás seguro de que quieres volver a realizar la prueba?",
+	"Download my answers": "Descargar mis respuestas",
+	"Save to db": "Guardar en la base de datos",
+	"Retake": "Repetir",
+	"Choose language": "Elegir idioma",
+	"Please enter a valid email address": "Por favor, ingresa una dirección de correo electrónico válida",
+	"Your email": "Tu correo electrónico",
+	"Next": "Siguiente",
+	"Save to DB": "Guardar en DB",
+	"Finding collections for you": "Buscando colecciones para ti"
 }

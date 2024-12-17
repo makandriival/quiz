@@ -1,11 +1,14 @@
 import React from "react";
 import "./loader.css";
+import { useTranslations } from "next-intl";
 
 interface Props {
 	percentage: number;
 }
 
 export const Loader: React.FC<Props> = ({ percentage }) => {
+	const t = useTranslations();
+
 	return (
 		<div className="h-[100vh] flex items-center justify-center">
 			<div className="flex flex-col items-center gap-4">
@@ -17,7 +20,7 @@ export const Loader: React.FC<Props> = ({ percentage }) => {
 						<div className={"percentage animate-ping"}>{percentage}%</div>
 					</div>
 				</div>
-        <div>Finding collections for you...</div>
+        <div>{t('Finding collections for you')}...</div>
 			</div>
 		</div>
 	);

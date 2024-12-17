@@ -37,6 +37,15 @@
 	"Email": "Email",
 	"Enter your email to get full access": "Gib deine E-Mail-Adresse ein, um vollen Zugriff zu erhalten",
 	"Thank you!": "Vielen Dank!",
-	"For supporting us and passing quiz": "für die Unterstützung und das Bestehen des Tests",
-	"Are you sure you want to retake the quiz?": "Möchtest du den Test wirklich wiederholen?"
+	"for supporting us and passing quiz": "für die Unterstützung und das Bestehen des Tests",
+	"Are you sure you want to retake the quiz?": "Möchtest du den Test wirklich wiederholen?",
+	"Download my answers": "Meine Antworten herunterladen",
+	"Save to db": "In DB speichern",
+	"Retake": "Wiederholen",
+	"Choose language": "Sprache wählen",
+	"Please enter a valid email address": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+	"Your email": "Deine E-Mail",
+	"Next": "Nächster",
+	"Save to DB": "In DB speichern",
+	"Finding collections for you": "Sammlungen für dich finden"
 }
