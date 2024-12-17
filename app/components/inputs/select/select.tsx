@@ -62,6 +62,7 @@ export const Select = () => {
 		const step1 = JSON.parse(localStorage.getItem("step-1") || "{}");
 		if (step1 && step1.answer) {
 			if (t(lang) !== step1.answer) {
+				console.log('use effect');
 				localStorage.clear();
 				router.push(`/${lang}/quiz/1`);
 				return;

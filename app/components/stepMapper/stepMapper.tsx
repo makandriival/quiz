@@ -8,6 +8,7 @@ import { Stepper } from "../stepper/Stepper";
 import { Loader } from "../loader/Loader";
 import { useTranslations } from "next-intl";
 import { Error } from "@/app/interfaces/interfaces";
+import { useRouter } from "next/navigation";
 
 interface Props {
 	stepId: number;
@@ -33,6 +34,7 @@ interface MapperContextProps {
 export const MapperContext = createContext({} as MapperContextProps);
 
 export const StepMapper: React.FC<Props> = ({ stepId, lang }) => {
+	const router = useRouter();
 	const [errors, setErrors] = useState<Error[]>([]);
 	const [isShowError, setIsShowError] = useState<boolean>(false);
 	const [isNextDisabled, setIsNextDisabled] = useState<boolean>(true);
@@ -61,6 +63,17 @@ export const StepMapper: React.FC<Props> = ({ stepId, lang }) => {
 			}, 5000);
 		});
 	};
+
+	useEffect(() => {
+		if (stepId === 1) {
+		const step1 = JSON.parse(localStorage.getItem("step-1") || "{}");
+		if (step1 && step1.answer) {
+			if (t(lang) !== step1.answer) {
+				localStorage.clear();
+			}
+		}
+	}
+	}, []);
 
 	if (isLoading) {
 		return <Loader percentage={percentage} />;
