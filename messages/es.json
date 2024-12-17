@@ -47,5 +47,9 @@
 	"Your email": "Tu correo electrónico",
 	"Next": "Siguiente",
 	"Save to DB": "Guardar en DB",
-	"Finding collections for you": "Buscando colecciones para ti"
+	"Finding collections for you": "Buscando colecciones para ti",
+	"en": "English",
+  "es": "Spanish",
+  "de": "German",
+  "fr": "French"
 }

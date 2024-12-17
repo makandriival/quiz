@@ -5,9 +5,11 @@ import { useTranslations } from "next-intl";
 import { MapperContext } from "../../stepMapper/stepMapper";
 import { Button } from "../../button/button";
 import { Checkbox } from "./checkbox";
+import { useRouter } from "next/navigation";
 
 export const Select = () => {
-	const { options, type, stepId, flow, setIsNextDisabled } =
+	const router = useRouter();
+	const { options, type, stepId, flow, setIsNextDisabled, lang} =
 		useContext(MapperContext);
 	const isMultiSelect = type === "multi-select";
 	const hasConditionals = options?.some(({ conditional }) => conditional);
@@ -53,16 +55,24 @@ export const Select = () => {
 	useEffect(() => {
 		if (!selection.length) return;
 		saveStep(selection.join(", "));
-		console.log(selection);
-		if (selection.length) setIsNextDisabled(false);
+		if (selection.length) setIsNextDisabled(false); 
 	}, [selection]);
 
 	useEffect(() => {
+		const step1 = JSON.parse(localStorage.getItem("step-1") || "{}");
+		if (step1 && step1.answer) {
+			if (t(lang) !== step1.answer) {
+				localStorage.clear();
+				router.push(`/${lang}/quiz/1`);
+				return;
+			}
+		}
 		if (savedStep) {
 			const { answer } = JSON.parse(savedStep);
 			if (!answer) return;
 			setSelection(answer.split(", "));
 		}
+		
 	}, []);
 
 	return (
